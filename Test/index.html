@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" defer></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js" defer></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <title>Rahti peli</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1 class="page-title"><ion-icon name="airplane-sharp"></ion-icon>  Rahtipeli  <ion-icon name="airplane-sharp"></ion-icon></h1>
+            <nav>
+                <ul class="flex-wrap">
+                    <li><a  class="button  button-white" href="index.html" >Game</a></li> <!--we can use multiple class for one element-->
+                    <li><a  class="button button-white" href="about.html" >About</a></li>
+                </ul>
+            </nav>
+
+        </header>
+        <main class="flex-wrap">
+            <div id="map">
+                <img class="responsive-image"   src="img/finland.svg" alt="finlands map">
+            </div>
+            <div class="boxes">
+                <section  class="box">
+                    <header>
+                        <h2 id="player-name">Pelaajan tiedot</h2>
+                        
+                    </header>
+                </section>
+                <section  class="box">
+                    <header>
+                        <h2 id="statistics-name">Statistiikkaa</h2>
+                        <ul id="statistics-listname"><!--if we want li elements shows ide by side we will add class= flex-wrap-->
+                            <li></li><!--with js we will add li -->
+                        </ul>
+                    </header>
+                </section>
+
+            </div>
+
+        </main>
+        <div>
+            <h2 id="airport-name">Lentokentä tiedot</h2>
+            <!-- img has id beacause it will be change -->
+            <img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather">
+        </div>
+        <div class="goal">
+            <h2></h2>
+            <p></p>
+
+        </div>
+
+    </div>
+    <div>
+        <form action="" id="player-form">
+            <input type="text" placeholder="Player name" required>
+            <!--required doesnt let me continue game -->
+            <input type="submit" value="Start game">
+
+
+        </form>
+    </div>
+    
+        
+</body>
+
+</html>
