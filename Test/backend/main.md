@@ -6,21 +6,31 @@ import json
 
 app = Flask(__name__)
 
-class Database:
+class StartGameVariables: # Parent
+
+    # Variables for the game
+
+    def __init__(self, player_id, player_name, boxes_to_transport, boxes_delivered,
+                boxes_in_plane, ident, plane_id=1, game_airports={}, home_airport='EFHK', home_continent='EU'):
+        
+        self.game_airports = game_airports
+        self.player_name = player_name
+        self.player_id = player_id
+        self.boxes_to_transport = boxes_to_transport
+        self.home_airport = home_airport
+        self.home_continent = home_continent
+        self.plane_id = plane_id
+        self.boxes_delivered = boxes_delivered
+        self.boxes_in_plane = boxes_in_plane
+        self.ident = ident
+
+class Database(StartGameVariables): # Child A
 
     def __init__(self, player_id, player_name, boxes_to_transport, boxes_delivered,
                 boxes_in_plane, plane_id, game_airports, home_airport, home_continent, ident):
         
-        self.player_id = player_id
-        self.player_name = player_name
-        self.boxes_to_transport = boxes_to_transport
-        self.boxes_delivered = boxes_delivered
-        self.boxes_in_plane = boxes_in_plane
-        self.plane_id = plane_id
-        self.game_airports = game_airports
-        self.home_airport = home_airport
-        self.home_continent = home_continent
-        self.ident = ident
+        super().__init__(player_id, player_name, boxes_to_transport, boxes_delivered,
+                boxes_in_plane, plane_id, game_airports, home_airport, home_continent,ident)
         
         self.yhteys = mysql.connector.connect(
             host="localhost",
@@ -34,17 +44,11 @@ class Database:
 
     @app.route('/create_users')    
     def create_users(self):
-        args = request.args
-        # tähän kohtaan ne argumentit mitä kysellään
-        # esim
-        # url on muotoa: /create_users?player_name=Kalle& jne....
-        name = args.get("player_name")
-        sql = f"INSERT INTO PLAYER (name,ap_ident,distance,used_time,cons_gas,money,score) VALUES ('{name}','{self.home_airport}',0,0,0,0,0);"
+        sql = f"INSERT INTO PLAYER (name,ap_ident,distance,used_time,cons_gas,money,score) VALUES ('{self.player_name}','{self.home_airport}',0,0,0,0,0);"
         kursori = self.yhteys.cursor()
         kursori.execute(sql)
         user_id = kursori.lastrowid
-
-        return user_id
+        self.player_id = user_id
 
 
     # Function select randomly airports from designed continent and add them to dictionary.
@@ -63,15 +67,13 @@ class Database:
                 # add new random airport to dictionary and add random 1-15 boxes to airport
                 self.game_airports[choice_airport[0]] = random.randint(1,15) #Generate random numbers for airport.
 
-        return json.dumps(self.game_airports)
+        # return game_airports
 
 
     # Fuction to get information of any given airport. Fuction return airport details (Name, city and country)
     @app.route('/get_information')
     def get_information(self):
-        args = request.args
-        ident = args.get("ident")
-        sql = f"SELECT airport.name, airport.municipality, country.name FROM airport, country WHERE airport.ident = '{ident}' and airport.iso_country = country.iso_country;"
+        sql = f"SELECT airport.name, airport.municipality, country.name FROM airport, country WHERE airport.ident = '{self.ident}' and airport.iso_country = country.iso_country;"
         kursori = self.yhteys.cursor()
         kursori.execute(sql)
         tulos = kursori.fetchall()
@@ -131,7 +133,7 @@ class Database:
             return(player[3],player[4],player[5],player[6],player[7])
 
 
-class Math:
+class Math(StartGameVariables): # Child B
 
     def __init__(self, longitude1, latitude1,latitude2, longitude2, distance, fuel_burn_rate):  
         self.latitude1 = latitude1
@@ -143,7 +145,6 @@ class Math:
 
     # This function calculates the distance between any 2 airport locations given
     # distance return in km
-
     @app.route('/distance_calculate')
     def distance_calculate(self):
 
@@ -158,7 +159,6 @@ class Math:
 
     # This function calculates how much fuel airplane has used
     # fuel_burn_rate is in database in airplane table
-
     @app.route('/calculeta_fuel')
     def calculate_fuel(self):
 
@@ -173,7 +173,6 @@ class Math:
     # Function to calculate time spent while flying
     # distance is in km
     # speed in database is in metres per second
-
     @app.route('/calculeta_time_spent')
     def calculate_time_spent(self, speed):
         self.speed = speed
@@ -183,8 +182,11 @@ class Math:
 
         # return time_spent
 
+
     # Function to calculate score for player
     # def calculate_score(flight_time, fuel_used, money ):
+
+
 
 
 if __name__ == '__main__':
