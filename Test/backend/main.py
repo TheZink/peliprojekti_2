@@ -19,10 +19,10 @@ db=Database()
 def create_users():
     args = request.args
     name = args.get("player_name")
-    home_airport = args.get("home_airport")
+    #home_airport = args.get("home_airport")
 
     try:
-        sql = f"INSERT INTO PLAYER (name,ap_ident,distance,used_time,cons_gas,money,score) VALUES ('{name}','{home_airport}',0,0,0,0,0);"
+        sql = f"INSERT INTO PLAYER (name,ap_ident,distance,used_time,cons_gas,money,score) VALUES ('{name}','EFHK',0,0,0,0,0);"
         cursor = db.get_conn().cursor()
         cursor.execute(sql)
         user_id = cursor.lastrowid
@@ -204,9 +204,6 @@ def calculate_time_spent(speed):
     time_spent = distance / (speed * 3.6)
 
     return time_spent
-
-# Function to calculate score for player
-# def calculate_score(flight_time, fuel_used, money ):
 
 
 if __name__ == '__main__':

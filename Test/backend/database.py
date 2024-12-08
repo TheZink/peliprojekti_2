@@ -8,8 +8,8 @@ class Database:
             host='localhost',
             port=3306,
             database='rahtipeli',
-            user='root',
-            password='KaOl2024',
+            user='pilotti',
+            password='pilotti12345',
             autocommit=True,
             collation='utf8mb4_unicode_ci'
             )

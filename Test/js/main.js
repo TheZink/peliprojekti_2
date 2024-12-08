@@ -1,25 +1,25 @@
 'use strict';
 /* 1. show map using Leaflet library. (L comes from the Leaflet library) */
 
-const map = L.map('map', {tap: false});
+const map = L.map('map', { tap: false });
 L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
   maxZoom: 20,
   subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
 }).addTo(map);
 map.setView([60, 24], 7);
 
-L.market([60,24]).addTo(map)
-.bindPopup('you are here!!!')
-.openPopup();
- 
+L.marker([60, 24]).addTo(map)
+  .bindPopup('you are here!!!')
+  .openPopup();
+
 
 // global variables
-const apiUrl = 'http://127.0.0.1:3060'//start address to python
+const apiUrl = 'http://127.0.0.1:3000'//start address to python
 const startLocation = ''; //from where we want to start we will put ident
 // icons
 
 // form for player name
-document.querySelector('#player-form').addEventListener('submit', function(evt){
+document.querySelector('#player-form').addEventListener('submit', function (evt) {
   evt.preventDefault();
   const playerName = document.querySelector('#player-input').value;
   //playerName variable will connect to backend player name
