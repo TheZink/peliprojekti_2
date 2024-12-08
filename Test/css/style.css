@@ -1,42 +1,39 @@
+
 /*variables*/
-:root {
-    --black: rgb(26, 17, 17);
-    --grey: rgb(70, 67, 67);
-    --blue: rgb(214, 214, 255);
-    --white: rgb(248, 246, 246);
+:root{
+    --black:rgb(26, 17, 17);
+    --grey:rgb(70, 67, 67);
+    --blue:rgb(214, 214, 255);
+    --white:rgb(248,246,246);
 }
 
 /*utilities*/
 /*make a button we can use that for every element*/
 /*make ready classes then use of them for elements in different projects*/
-.button {
+.button{
     display: block;
     padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 4px;
     text-align: center;
 }
-
-.button-white {
+.button-white{
     background-color: var(--white);
     color: var(--black);
 
 }
-
 /* side by side*/
-.flex-wrap {
+.flex-wrap{
     display: flex;
     flex-wrap: wrap;
 }
-
-.space-evently {
+.space-evently{
     justify-content: space-evenly;
 }
-
 /*its size always be set with parent element*/
-.responsive-image {
+.responsive-image{ 
     width: 100%;
-    height: auto;
+    height: auto; 
 
 }
 
@@ -45,75 +42,68 @@
 
 
 /*app specific*/
-html,
-body {
+html, body{
     margin: 0;
     padding: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    /*never use default font*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;  /*never use default font*/
     background-color: var(--blue);
 }
-
-.container {
-    /*width: 80%;
+.container{
+/*width: 80%;
     margin: auto; /*keep page in center*/
     width: 100%;
 }
 
 
-.page-header {
+.page-header{
     background-color: var(--grey);
     color: white;
     padding: 1rem;
 }
 
-.page-title {
+.page-title{
     margin: 0;
     text-align: center;
 }
-
-ion-icon {
+ion-icon{
     vertical-align: middle;
 }
-
-ul {
-    list-style-type: none;
-    /*To remove bullets from a list*/
-
-
+ul{
+    list-style-type: none; /*To remove bullets from a list*/
+    
+    
 }
 
-main {
+main{
     padding: 1rem;
 
 }
 
-#map {
-    width: 100%;
-
+#map{
+    width: 40%;
+   
 }
-
-.boxes {
-    width: 100%;
+.boxes{
+    width: 60%;
 }
-
-.box {
-    padding: 1rem;
-    /*distance between image and texts*/
-    font-size: x-small;
-    /*avoid pixel unit*/
+.box{
+    padding: 1rem;  /*distance between image and texts*/
+    font-size: x-small; /*avoid pixel unit*/
 }
-
-#map,
-.box {
+#map, .box{
     border-radius: 6px;
     box-shadow: #52595f 3px 3px 3px;
 }
-
-.box h2 {
+.box h2{
     margin: 0;
 }
 
+#start.form{
+    width: 60%;
+   /* height: ;*/
+    position: absolute;
+    z-index: 9999;
+}
 /*.box table{
     width:100%;
     text-align: center;
