@@ -58,6 +58,7 @@ body {
     /*width: 80%;
     margin: auto; /*keep page in center*/
     width: 100%;
+    position: relative;
 }
 
 
@@ -90,11 +91,17 @@ main {
 
 #map {
     width: 40%;
-
+    height: 40vh;
 }
 
 .boxes {
-    width: 60%;
+    width: 55%;
+    margin-left: 1rem;
+}
+
+section {
+    border-left-style: solid;
+    border-color: black;
 }
 
 .box {
@@ -102,6 +109,7 @@ main {
     /*distance between image and texts*/
     font-size: x-small;
     /*avoid pixel unit*/
+    margin-bottom: 0.5rem;
 }
 
 #map,
@@ -114,11 +122,27 @@ main {
     margin: 0;
 }
 
-#start.form {
-    width: 60%;
-    /* height: ;*/
+#start-form {
+    width: 100vw;
+    height: 100vh;
     position: absolute;
+    top: 0;
     z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding-top: 20%;
+}
+
+#player-form {
+    display: flex;
+    width: 30%;
+    margin: auto;
+    flex-direction: column;
+}
+
+/* user input-form*/
+.hide {
+    display: none;
 }
 
 /*.box table{
@@ -127,6 +151,7 @@ main {
     border: var() solid 1px;
     border-radius:4px;
 }*/
+
 /*.box li{
     width:50%;
     text-align: center;
@@ -134,4 +159,31 @@ main {
     border-radius: 4px;
     padding:0.3rem;
     margin:0.3rem;
-    box-sizing: border-box;} /* when we add this border and width together is 50% and two li shows in one row */
+    box-sizing: border-box;
+}
+*/
+/* when we add this border and width together is 50% and two li shows in one row */
+
+/* Leaflet icons */
+.blue-icon {
+    background-color: #2474ff;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+.green-icon {
+    background-color: #27ba35;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+/* p .ion-icon {
+    background-color: antiquewhite;
+    border-bottom: 0;
+} */
+
+.page-footer h3 {
+    background-color: var(--grey);
+    color: white;
+    padding: 1rem;
+}

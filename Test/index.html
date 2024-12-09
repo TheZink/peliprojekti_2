@@ -15,7 +15,7 @@
     <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js" defer></script>
     <!-- our own js file -->
     <script src="js/main.js" defer></script>
-    <title>Rahti peli</title>
+    <title>Rahtipeli v.II</title>
 </head>
 
 <body>
@@ -29,53 +29,79 @@
 
         <!-- Page Main module -->
         <main class="flex-wrap">
+
+            <!-- dynamic map -->
             <div id="map">
-                <img class="responsive-image" src="img/finland.svg" alt="finlands map">
+                <!-- this will have dynamic map -->
             </div>
+
+            <!-- info boxes to the right side of map -->
             <div class="boxes">
+
+                <!-- Pelaajan tiedot box-->
                 <section class="box">
-                    <header>
+                    <header id="player-info">
                         <h2 id="player-name">Pelaajan tiedot</h2>
 
                     </header>
                 </section>
+                <!-- Lentokoneen tiedot box-->
                 <section class="box">
-                    <header>
+                    <header id="airplane-info">
                         <h2 id="airplane-name">Lentokoneen tiedot</h2>
 
                     </header>
                 </section>
+                <!-- Pelin etenemisen tiedot box: lennetty matka, käytetty aika, tuotettu co2, jne.-->
                 <section class="box">
                     <header>
                         <h2 id="statistics-name">Statistiikka</h2>
+                        <table>
+                            <tr>
+                                <td>co2 consumed: <span id="consumed">0</span>kg</td>
+                                <td>co2 budget: <span id="budget">0</span>kg</td>
+                                <td>Laatikot: <span id="laatiko-maara">0</span>kpl</td>
+                                <td>speed: <span id="speed"></span>km/h</td>
+                            </tr>
+                        </table>
+
                         <ul id="statistics-listname">
                             <!--if we want li elements shows ide by side we will add class= flex-wrap-->
                             <li></li><!--with js we will add li -->
                         </ul>
                     </header>
                 </section>
+                <!-- Lentokentän tiedot box: Sää olosuhteet? yms? -->
                 <section class="box">
                     <header>
-                        <h2 id="airport-name">Lentokentän tiedot</h2>
+                        <h2>Lentokentän tiedot</h2>
+                        <p id="airport-name"></p>
+                        <p id="airport-condition"></p>
+                        <p id="airport-temp"></p>
                         <!-- img has id beacause it will be change -->
                         <img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather">
                     </header>
                 </section>
-
             </div>
 
         </main>
+
+        <!-- dynamic goal graphic, if we use it. is inside container -->
         <div class="goal">
             <h2></h2>
             <p></p>
-
         </div>
 
-    </div>
+
+    </div> <!-- container div end -->
+
+
+    <!-- Game start form. This will call in JS the start functions. this is outside of container. -->
     <div id="start-form">
+
         <form action="" id="player-form">
             <input id="player-input" type="text" placeholder="Player name" required>
-            <!--required doesnt let me continue game -->
+
             <input type="submit" value="Start game">
 
 
@@ -83,6 +109,9 @@
     </div>
 
 
+    <footer class="page-footer">
+        <h3>Ryhmä 1</h3>
+    </footer>
 </body>
 
 </html>
