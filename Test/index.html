@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Leaflet. Newest version is 1.9.4. but going with this one that works now. -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
-    <link href="css/style.css" rel="stylesheet">
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" defer></script>
+    <!-- Our own stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--funky icons -->
     <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js" defer></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js" defer></script>
+    <!-- our own js file -->
     <script src="js/main.js" defer></script>
     <title>Rahti peli</title>
 </head>
 
 <body>
     <div class="container">
+
+        <!-- Page top header and navigation if needed -->
         <header class="page-header">
             <h1 class="page-title"><ion-icon name="airplane-sharp"></ion-icon> Rahtipeli <ion-icon
                     name="airplane-sharp"></ion-icon></h1>
-
-
         </header>
+
+        <!-- Page Main module -->
         <main class="flex-wrap">
             <div id="map">
                 <img class="responsive-image" src="img/finland.svg" alt="finlands map">
