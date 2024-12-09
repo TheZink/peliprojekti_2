@@ -1,0 +1,215 @@
+/*variables*/
+:root {
+    --black: rgb(26, 17, 17);
+    --grey: rgb(70, 67, 67);
+    --blue: rgb(214, 214, 255);
+    --white: rgb(248, 246, 246);
+}
+
+/*utilities*/
+/*make a button we can use that for every element*/
+/*make ready classes then use of them for elements in different projects*/
+.button {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.button-white {
+    background-color: var(--white);
+    color: var(--black);
+
+}
+
+/* side by side*/
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.space-evently {
+    justify-content: space-evenly;
+}
+
+/*its size always be set with parent element*/
+.responsive-image {
+    width: 100%;
+    height: auto;
+
+}
+
+
+
+
+
+/*app specific*/
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /*never use default font*/
+    background-color: var(--blue);
+}
+
+.container {
+    /*width: 80%;
+    margin: auto; /*keep page in center*/
+    width: 100%;
+    position: relative;
+}
+
+
+.page-header {
+    background-color: var(--grey);
+    color: white;
+    padding: 1rem;
+}
+
+.page-title {
+    margin: 0;
+    text-align: center;
+}
+
+ion-icon {
+    vertical-align: middle;
+}
+
+ul {
+    list-style-type: none;
+    /*To remove bullets from a list*/
+
+
+}
+
+main {
+    padding: 1rem;
+
+}
+
+#map {
+    width: 40%;
+    height: 500px;
+}
+
+.boxes {
+    width: 55%;
+    margin-left: 1rem;
+}
+
+section {
+    border-left-style: solid;
+    border-color: black;
+}
+
+.box {
+    padding: 1rem;
+    /*distance between image and texts*/
+    font-size: x-small;
+    /*avoid pixel unit*/
+    margin-bottom: 0.5rem;
+}
+
+#map,
+.box {
+    border-radius: 6px;
+    box-shadow: #52595f 3px 3px 3px;
+}
+
+.box h2 {
+    margin: 0;
+}
+
+#start-form {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding-top: 20%;
+}
+
+#player-form {
+    display: flex;
+    width: 30%;
+    margin: auto;
+    flex-direction: column;
+}
+
+#player-input {
+    text-align: center;
+}
+
+#game-over {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding-top: 20%;
+}
+
+#game-over h1 {
+    color: whitesmoke;
+}
+
+/* user input-form*/
+.hide {
+    display: none;
+}
+
+/*.box table{
+    width:100%;
+    text-align: center;
+    border: var() solid 1px;
+    border-radius:4px;
+}*/
+
+/*.box li{
+    width:50%;
+    text-align: center;
+    border: var(--grey) solid 1px;
+    border-radius: 4px;
+    padding:0.3rem;
+    margin:0.3rem;
+    box-sizing: border-box;
+}
+*/
+/* when we add this border and width together is 50% and two li shows in one row */
+
+/* Leaflet icons */
+.blue-icon {
+    background-color: #2474ff;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+.green-icon {
+    background-color: #27ba35;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+.red-icon {
+    background-color: red;
+    border-radius: 50%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+/* p .ion-icon {
+    background-color: antiquewhite;
+    border-bottom: 0;
+} */
+
+.page-footer h3 {
+    background-color: var(--grey);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}

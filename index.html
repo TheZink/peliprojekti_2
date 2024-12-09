@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Leaflet. Newest version is 1.9.4. but going with this one that works now. -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" defer></script>
+    <!-- Our own stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--funky icons -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js" defer></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js" defer></script>
+    <!-- our own js file -->
+    <script src="js/main.js" defer></script>
+    <title>Rahtipeli v.II</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Page top header and navigation if needed -->
+        <header class="page-header">
+            <h1 class="page-title"><ion-icon name="airplane-sharp"></ion-icon> Rahtipeli <ion-icon
+                    name="airplane-sharp"></ion-icon></h1>
+        </header>
+
+        <!-- Page Main module -->
+        <main class="flex-wrap">
+
+            <!-- dynamic map -->
+            <div id="map">
+                <!-- this will have dynamic map -->
+            </div>
+
+            <!-- info boxes to the right side of map -->
+            <div class="boxes">
+
+                <!-- Pelaajan tiedot box-->
+                <section class="box">
+                    <header id="player-info">
+                        <h2 id="player-name">Pelaajan tiedot</h2>
+
+                    </header>
+                </section>
+                <!-- Lentokoneen tiedot box-->
+                <section class="box">
+                    <header id="airplane-info">
+                        <h2 id="airplane-name">Lentokoneen tiedot</h2>
+
+                    </header>
+                </section>
+                <!-- Pelin etenemisen tiedot box: lennetty matka, käytetty aika, tuotettu co2, jne.-->
+                <section class="box" id="statistics">
+                    <header>
+                        <h2 id="statistics-name">Statistiikka</h2>
+
+                        <ul id="statistics-listname">
+                            <!--if we want li elements shows ide by side we will add class= flex-wrap-->
+                            <li></li><!--with js we will add li -->
+                        </ul>
+                    </header>
+                </section>
+                <!-- Lentokentän tiedot box: Sää olosuhteet? yms? -->
+                <section class="box" id="airport-info">
+                    <header>
+                        <h2>Lentokentän tiedot</h2>
+                        <p id="airport-name"></p>
+                        <p id="airport-condition"></p>
+                        <p id="airport-temp"></p>
+                        <!-- img has id beacause it will be change -->
+                        <img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="weather">
+                    </header>
+                </section>
+            </div>
+
+        </main>
+
+        <!-- dynamic goal graphic, if we use it. is inside container -->
+        <div class="goal">
+            <h2></h2>
+            <p></p>
+        </div>
+
+
+    </div> <!-- container div end -->
+
+
+    <!-- Game start form. This will call in JS the start functions. this is outside of container. -->
+    <div id="start-form">
+
+        <form action="" id="player-form">
+            <input id="player-input" type="text" placeholder="Pelaajan nimi" required>
+
+            <input type="submit" value="Aloita peli">
+
+
+        </form>
+    </div>
+    <div id="game-over" class="hide">
+        <h1>Onneksi olkoon!</h1>
+    </div>
+
+
+    <footer class="page-footer">
+        <h3>Ryhmä 1</h3>
+    </footer>
+</body>
+
+</html>
