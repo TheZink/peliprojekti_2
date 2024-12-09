@@ -53,17 +53,9 @@
                     </header>
                 </section>
                 <!-- Pelin etenemisen tiedot box: lennetty matka, käytetty aika, tuotettu co2, jne.-->
-                <section class="box">
+                <section class="box" id="statistics">
                     <header>
                         <h2 id="statistics-name">Statistiikka</h2>
-                        <table>
-                            <tr>
-                                <td>co2 consumed: <span id="consumed">0</span>kg</td>
-                                <td>co2 budget: <span id="budget">0</span>kg</td>
-                                <td>Laatikot: <span id="laatiko-maara">0</span>kpl</td>
-                                <td>speed: <span id="speed"></span>km/h</td>
-                            </tr>
-                        </table>
 
                         <ul id="statistics-listname">
                             <!--if we want li elements shows ide by side we will add class= flex-wrap-->
@@ -72,7 +64,7 @@
                     </header>
                 </section>
                 <!-- Lentokentän tiedot box: Sää olosuhteet? yms? -->
-                <section class="box">
+                <section class="box" id="airport-info">
                     <header>
                         <h2>Lentokentän tiedot</h2>
                         <p id="airport-name"></p>
@@ -100,12 +92,15 @@
     <div id="start-form">
 
         <form action="" id="player-form">
-            <input id="player-input" type="text" placeholder="Player name" required>
+            <input id="player-input" type="text" placeholder="Pelaajan nimi" required>
 
-            <input type="submit" value="Start game">
+            <input type="submit" value="Aloita peli">
 
 
         </form>
+    </div>
+    <div id="game-over" class="hide">
+        <h1>Onneksi olkoon!</h1>
     </div>
 
 

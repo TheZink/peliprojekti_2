@@ -49,6 +49,8 @@ def get_ap_idents():
     args = request.args
     continent = args.get("continent")
 
+    visited = []
+
     try:
         sql = f"SELECT ident FROM airport WHERE continent = '{continent}'"
         cursor = db.get_conn().cursor()
@@ -57,10 +59,11 @@ def get_ap_idents():
 
         game_airports = {}
 
-        for time in range(15):
+        for time in range(16):
             choice_airport = random.choice(result)
-            if choice_airport not in game_airports:
+            if choice_airport not in game_airports and choice_airport[0] != 'EFHK' and choice_airport not in visited:
                 game_airports[choice_airport[0]] = {'box': random.randint(1,15)}
+                visited.append(choice_airport)
                 # {EFHK: {BOX:15, jne.}, AAHK:{BOX:3, jne}}
         
         return jsonify(game_airports), 200
@@ -228,14 +231,14 @@ def distance_calculate():
 
 # URL: /localhost/calculate_fuel?distance=<distance>&fuel_burn_rate=<fuel_burn_rate>
 
-@app.route('/calculate_fuel')
+@app.route('/calculate_fuel/')
 def calculate_fuel():
     args = request.args
     distance = args.get("distance")
     fuel_burn_rate = args.get("fuel_burn_rate")
 
     try:
-        fuel_consumed = int(distance) * (int(fuel_burn_rate) / 100)
+        fuel_consumed = float(distance) * (float(fuel_burn_rate) / 100 )
         return jsonify({'fuel': fuel_consumed}), 200
     
     except Exception as e:
