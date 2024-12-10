@@ -279,7 +279,7 @@ async function gameStart(playerName) {
     const marker_home = L.marker([60.3172, 24.963301]).addTo(map);
     airportMarkers.addLayer(marker_home);
     marker_home.setIcon(redIcon);
-    marker_home.bindPopup(`Home airport.`);
+    marker_home.bindPopup(`Helsinki-Vantaa<br>Your home airport.`);
     marker_home.openPopup();
 
     // Other airport markers and popup
@@ -298,7 +298,7 @@ async function gameStart(playerName) {
       // with button
       const goButton = document.createElement('button');
       goButton.classList.add('button');
-      goButton.innerHTML = 'Fly here!';
+      goButton.innerHTML = 'Fly here?';
       popupContent.append(goButton);
       marker.bindPopup(popupContent);
 
@@ -421,14 +421,15 @@ async function gamePlay(userId, fromAirport, toAirport) {
   // popup
   const popupContent = document.createElement('div');
   const h4 = document.createElement('h4');
-  h4.innerHTML = 'Home airport.';
+  h4.innerHTML = 'Your home airport.';
   popupContent.append(h4);
   // with button
   const goButton = document.createElement('button');
   goButton.classList.add('button');
-  goButton.innerHTML = 'Fly here!';
+  goButton.innerHTML = 'Fly home?';
   popupContent.append(goButton);
   marker_home.bindPopup(popupContent);
+  marker_home.openPopup;
   goButton.addEventListener('click', function () {
     gamePlay(userId, toAirport, homeLocation);
   });
