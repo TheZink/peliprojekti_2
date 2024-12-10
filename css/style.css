@@ -122,15 +122,29 @@ section {
     margin: 0;
 }
 
+#statistics-listname li {
+    font-weight: bold;
+}
+
 #start-form {
     width: 100vw;
     height: 100vh;
     position: absolute;
     top: 0;
     z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.900);
     text-align: center;
     padding-top: 20%;
+}
+
+#start-form h1 {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+#start-form h2 {
+    color: whitesmoke;
+    font-weight: bold;
 }
 
 #player-form {
@@ -150,13 +164,24 @@ section {
     position: absolute;
     top: 0;
     z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.900);
     text-align: center;
     padding-top: 20%;
 }
 
 #game-over h1 {
     color: whitesmoke;
+    font-weight: bold;
+}
+
+#game-over h2 {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+#game-over li {
+    color: whitesmoke;
+    font-weight: bold;
 }
 
 /* user input-form*/
