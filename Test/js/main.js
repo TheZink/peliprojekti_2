@@ -429,7 +429,7 @@ async function gamePlay(userId, fromAirport, toAirport) {
   goButton.innerHTML = 'Fly home?';
   popupContent.append(goButton);
   marker_home.bindPopup(popupContent);
-  marker_home.openPopup;
+  marker_home.openPopup();
   goButton.addEventListener('click', function () {
     gamePlay(userId, toAirport, homeLocation);
   });
