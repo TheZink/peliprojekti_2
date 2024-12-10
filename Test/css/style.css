@@ -133,6 +133,11 @@ section {
     padding-top: 20%;
 }
 
+#start-form h1 {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
 #player-form {
     display: flex;
     width: 30%;
