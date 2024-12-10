@@ -102,7 +102,7 @@ const redIcon = L.divIcon({ className: 'red-icon' });
 //
 //
 //
-// TÄSTÄ PELAAMINEN ALKAA
+// GAMING STARTS HERE
 //
 //
 // form for player name
@@ -127,23 +127,13 @@ document.querySelector('#player-form').addEventListener('submit', function (evt)
 
 
 
-
-
-// function to update goal data and goal table in UI?
-
-// function to check if game is over?
-
-
-
 //
 //
 //
 // HERE WILL BE THE GAMEPLAY ENGINE FUNCTIONS
-//
-//
-//
-// To play
-// we need back player id, airplane info, home airport name and location, 15 airports idents, and their names and their locations
+// START
+// PLAY
+// END
 //
 //
 
@@ -333,7 +323,7 @@ async function gamePlay(userId, fromAirport, toAirport) {
   console.log(userId, fromAirport, toAirport)
   // console.log(AirportsIdents['lat'])
 
-  // lasketaan etäisyys kenttien välillä eli lennetty matka, kulunut aika, ja bensan kulutus
+  // This calc distance between APs, used time, cons fuel
   try {
 
     // This get ap coordinates
@@ -443,8 +433,6 @@ async function gamePlay(userId, fromAirport, toAirport) {
     gamePlay(userId, toAirport, homeLocation);
   });
 
-
-
   // Other airport markers and popup
   for (let airport in AirportsIdents) {
     const marker = L.marker([parseFloat(AirportsIdents[airport]['lat']), parseFloat(AirportsIdents[airport]['long'])]).addTo(map);
@@ -470,9 +458,20 @@ async function gamePlay(userId, fromAirport, toAirport) {
   }
 }
 
+//
+//
+//
+// THIS TO ENDGAME
+//
+//
+//
+//
+
+
 async function endGame() {
   try {
 
+    // update end stats to end UI
     const responseGetPlayerInfo = await fetch(`${apiUrl}get_player_info?player_name=${userName}&player_id=${userId}`);
     const GetPlayerInfo = await responseGetPlayerInfo.json();
     console.log(GetPlayerInfo)
@@ -481,17 +480,14 @@ async function endGame() {
     const li4a = document.createElement('li');
     const li4b = document.createElement('li');
     const li4c = document.createElement('li');
-    // const li4d = document.createElement('li');
     const li4e = document.createElement('li');
     li4a.innerHTML = `Kuljettu matka: ${GetPlayerInfo['distance']} km.`;
     li4b.innerHTML = `Kulunut aika: ${GetPlayerInfo['used_time']} tuntia.`;
     li4c.innerHTML = `Päästöt yhteensä: ${GetPlayerInfo['cons_gas']} g.`;
-    // li4d.innerHTML = `Laatikoita lentokoneessa: ${boxInPlane}`;
     li4e.innerHTML = `Laatikoita kuljetettu: ${boxDel}`;
     endgameul.append(li4a);
     endgameul.append(li4b);
     endgameul.append(li4c);
-    // endgameul.append(li4d);
     endgameul.append(li4e);
 
 
@@ -501,35 +497,16 @@ async function endGame() {
     console.log(error)
   }
 
+  // show END GAME STATS
   const gameOverElement = document.getElementById('game-over');
   gameOverElement.classList.remove('hide');
 
+  //
+  //
+  //
+  //
+  // ADD BUTTON to start again or exit?
+  //
+  //
+
 }
-
-//
-//
-/*
-updateStatus(gameData);
-for (let airport of GetAirportsData)
-
-  if (airport.active) {
-    showWeather(airport);
-    const p = document.querySelector('#weather-icon')
-    const marker = L.marker([airport.latitude_deg, airport.longitude_deg]).addTo(map);
-    marker.bindPopup(p, `< b > ${ airport.name }</b > <br>${airport.municipality}, ${airport.country}`);
-    marker.openPopup;
-
-    marker.setIcon(greenIcon);
-
-  } else {
-      marker.setIcon(blueIcon);
-    const h4 = document.createElement('h4');
-    const p = document.createElement('p');
-    h4.innerHTML = `${airport.name}`;
-    p.innerHTML = `Distance ${airport.distance}km`; // how to get distance??????
- 
-  }
-
-    */
-
-
