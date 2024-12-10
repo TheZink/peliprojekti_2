@@ -29,6 +29,7 @@ const apiUrl = 'http://127.0.0.1:3000/';
 const startLocation = 'EFHK';
 const homeLocation = 'EFHK';
 const homeContinent = 'EU';
+const homeCoordinates = [60.3172, 24.963301];
 const planeId = 1;
 let AirportsIdents = {};
 let PlaneInfo = {};
