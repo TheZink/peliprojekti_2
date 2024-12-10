@@ -171,7 +171,13 @@ section {
 
 #game-over h1 {
     color: whitesmoke;
-    font-weight: bold;}
+    font-weight: bold;
+}
+
+#game-over h2 {
+    color: whitesmoke;
+    font-weight: bold;
+}
 
 #game-over li {
     color: whitesmoke;
