@@ -142,6 +142,11 @@ section {
     font-weight: bold;
 }
 
+#start-form h2 {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
 #player-form {
     display: flex;
     width: 30%;
