@@ -162,7 +162,7 @@ section {
 
 #game-over h1 {
     color: whitesmoke;
-}
+    font-weight: bold;}
 
 /* user input-form*/
 .hide {
