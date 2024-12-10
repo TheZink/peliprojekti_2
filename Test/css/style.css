@@ -122,6 +122,10 @@ section {
     margin: 0;
 }
 
+#statistics-listname li {
+    font-weight: bold;
+}
+
 #start-form {
     width: 100vw;
     height: 100vh;
@@ -163,6 +167,11 @@ section {
 #game-over h1 {
     color: whitesmoke;
     font-weight: bold;}
+
+#game-over li {
+    color: whitesmoke;
+    font-weight: bold;
+}
 
 /* user input-form*/
 .hide {

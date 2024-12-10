@@ -377,7 +377,7 @@ async function gamePlay(userId, fromAirport, toAirport) {
     // Update Player stats into UI
     const responseGetPlayerInfo = await fetch(`${apiUrl}get_player_info?player_name=${userName}&player_id=${userId}`);
     const GetPlayerInfo = await responseGetPlayerInfo.json();
-    console.log(GetPlayerInfo)
+    console.log(GetPlayerInfo);
     const section3ul = document.querySelector('#statistics-listname');
     section3ul.innerHTML = '';
     const li3a = document.createElement('li');
@@ -474,7 +474,7 @@ async function endGame(userId, userName) {
     // update end stats to end UI
     const responseGetPlayerInfo = await fetch(`${apiUrl}get_player_info?player_name=${userName}&player_id=${userId}`);
     const GetPlayerInfo = await responseGetPlayerInfo.json();
-    console.log(GetPlayerInfo)
+    console.log(GetPlayerInfo);
     const endgameul = document.querySelector('#statistics-endgame');
     endgameul.innerHTML = '';
     const li4a = document.createElement('li');
