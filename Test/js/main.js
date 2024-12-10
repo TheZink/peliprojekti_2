@@ -359,7 +359,7 @@ async function gamePlay(userId, fromAirport, toAirport) {
       boxDel = boxDel + boxInPlane;
       boxInPlane = 0;
       if (boxDel >= boxToDel) {
-        endGame();
+        endGame(userId, userName);
       }
     }
     // This to pick up boxes from AP to Plane, remove from AP
@@ -468,7 +468,7 @@ async function gamePlay(userId, fromAirport, toAirport) {
 //
 
 
-async function endGame() {
+async function endGame(userId, userName) {
   try {
 
     // update end stats to end UI
