@@ -384,6 +384,7 @@ async function gamePlay(userId, fromAirport, toAirport) {
       AirportsIdents[toAirport]['box'] -= loadingInToPlane;
     }
 
+    // Update Player stats into UI
     const responseGetPlayerInfo = await fetch(`${apiUrl}get_player_info?player_name=${userName}&player_id=${userId}`);
     const GetPlayerInfo = await responseGetPlayerInfo.json();
     console.log(GetPlayerInfo)
@@ -470,23 +471,41 @@ async function gamePlay(userId, fromAirport, toAirport) {
 }
 
 function endGame() {
+  try {
+
+    const responseGetPlayerInfo = await fetch(`${apiUrl}get_player_info?player_name=${userName}&player_id=${userId}`);
+    const GetPlayerInfo = await responseGetPlayerInfo.json();
+    console.log(GetPlayerInfo)
+    const endgameul = document.querySelector('#statistics-endgame');
+    endgameul.innerHTML = '';
+    const li4a = document.createElement('li');
+    const li4b = document.createElement('li');
+    const li4c = document.createElement('li');
+    // const li4d = document.createElement('li');
+    const li4e = document.createElement('li');
+    li4a.innerHTML = `Kuljettu matka: ${GetPlayerInfo['distance']} km.`;
+    li4b.innerHTML = `Kulunut aika: ${GetPlayerInfo['used_time']} tuntia.`;
+    li4c.innerHTML = `Päästöt yhteensä: ${GetPlayerInfo['cons_gas']} g.`;
+    // li4d.innerHTML = `Laatikoita lentokoneessa: ${boxInPlane}`;
+    li4e.innerHTML = `Laatikoita kuljetettu: ${boxDel}`;
+    endgameul.append(li4a);
+    endgameul.append(li4b);
+    endgameul.append(li4c);
+    // endgameul.append(li4d);
+    endgameul.append(li4e);
+
+
+
+
+  } catch (error) {
+    console.log(error)
+  }
+
   const gameOverElement = document.getElementById('game-over');
   gameOverElement.classList.remove('hide');
 
 }
 
-//
-// offer new airports to fly to + Home airport
-// alustetaan pelaajalle siirtymä seuraavalle kentälle
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 /*

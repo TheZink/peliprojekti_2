@@ -58,8 +58,6 @@
                         <h2 id="statistics-name">Statistiikka</h2>
 
                         <ul id="statistics-listname">
-                            <!--if we want li elements shows ide by side we will add class= flex-wrap-->
-                            <li></li><!--with js we will add li -->
                         </ul>
                     </header>
                 </section>
@@ -90,7 +88,7 @@
 
     <!-- Game start form. This will call in JS the start functions. this is outside of container. -->
     <div id="start-form">
-
+        <h1>M A T K A P E L I v.II</h1>
         <form action="" id="player-form">
             <input id="player-input" type="text" placeholder="Pelaajan nimi" required>
 
@@ -99,8 +97,14 @@
 
         </form>
     </div>
+    <!-- Game end info. -->
     <div id="game-over" class="hide">
+        <h1>G A M E   O V E R !</h1>
+        <br>
         <h1>Onneksi olkoon!</h1>
+        <br>
+        <ul id="statistics-endgame">
+        </ul>
     </div>
 
 
