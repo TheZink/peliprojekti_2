@@ -470,7 +470,7 @@ async function gamePlay(userId, fromAirport, toAirport) {
   }
 }
 
-function endGame() {
+async function endGame() {
   try {
 
     const responseGetPlayerInfo = await fetch(`${apiUrl}get_player_info?player_name=${userName}&player_id=${userId}`);
